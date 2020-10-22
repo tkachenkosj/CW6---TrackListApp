@@ -3,11 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Track List-->
         <scene sceneID="vH0-Xr-XK2">
             <objects>
                 <tableViewController id="0ui-i9-Ybu" customClass="TrackListViewController" customModule="CW6___TrackListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,6 +24,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="qk3-WP-PNh" kind="show" id="IGn-v1-5ap"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,11 +34,53 @@
                             <outlet property="delegate" destination="0ui-i9-Ybu" id="373-as-6sT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="GNJ-G2-sV1"/>
+                    <navigationItem key="navigationItem" title="Track List" id="GNJ-G2-sV1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIM-O7-7p1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-181" y="73"/>
+        </scene>
+        <!--Detail Track-->
+        <scene sceneID="f4g-zL-PeK">
+            <objects>
+                <viewController id="qk3-WP-PNh" customClass="DetailViewController" customModule="CW6___TrackListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pvk-D4-f5P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4tm-rF-2fL">
+                                <rect key="frame" x="30" y="118" width="354" height="221"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="221" id="6Xn-sU-BE2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3q-fl-uJ2">
+                                <rect key="frame" x="30" y="379" width="354" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eya-9O-pep"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s3q-fl-uJ2" firstAttribute="top" secondItem="4tm-rF-2fL" secondAttribute="bottom" constant="40" id="5F8-ts-wKT"/>
+                            <constraint firstItem="eya-9O-pep" firstAttribute="trailing" secondItem="4tm-rF-2fL" secondAttribute="trailing" constant="30" id="9o4-8T-bUp"/>
+                            <constraint firstItem="4tm-rF-2fL" firstAttribute="leading" secondItem="eya-9O-pep" secondAttribute="leading" constant="30" id="SdT-St-1KZ"/>
+                            <constraint firstItem="eya-9O-pep" firstAttribute="trailing" secondItem="s3q-fl-uJ2" secondAttribute="trailing" constant="30" id="Wtf-p1-A0c"/>
+                            <constraint firstItem="4tm-rF-2fL" firstAttribute="top" secondItem="eya-9O-pep" secondAttribute="top" constant="30" id="lFY-qq-k5H"/>
+                            <constraint firstItem="s3q-fl-uJ2" firstAttribute="leading" secondItem="eya-9O-pep" secondAttribute="leading" constant="30" id="mqt-2J-jt1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail Track" id="xVC-5d-7NL"/>
+                    <connections>
+                        <outlet property="imageView" destination="4tm-rF-2fL" id="tYT-a6-MLS"/>
+                        <outlet property="trackNameLabel" destination="s3q-fl-uJ2" id="uqh-gT-d4k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qbs-Ic-JJ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569.56521739130437" y="72.991071428571431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gTl-rF-7vE">
